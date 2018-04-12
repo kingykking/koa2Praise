@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Thumb praise button</title>
+    <link rel="stylesheet" href="./css/common.css">
+    <script type="text/javascript" src='https://cdn.bootcss.com/axios/0.18.0/axios.js'></script>
+    <script src="//cdn.bootcss.com/systemjs/0.21.0/system-production.js"></script>
+    <script src="./js/jquery.js"></script>
+    <script>
+        SystemJS.import('./js/index.js').then(function (m) {
+            $.fn.Thumb = function () {
+                return new m.default(this);
+            };
+            new m.default({
+                id: '#thumbup',
+                baseNumber: 0
+            }).init();
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="example">
+            <img src="./thumbup.png">
+        </div>
+		<div class="thumbup" id="thumbup">
+		</div>
+	</div>
+</body>
+</html>
